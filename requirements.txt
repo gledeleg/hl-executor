@@ -2,3 +2,5 @@ fastapi
 uvicorn
 python-dotenv
 pydantic
+hyperliquid-python-sdk
+eth-account
