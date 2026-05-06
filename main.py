@@ -81,8 +81,28 @@ def trade(payload: TradePayload, x_executor_secret: str | None = Header(default=
             }
         }
 
-    return {
-        "ok": False,
-        "dryRun": False,
-        "message": "Real trading is not enabled yet. Hyperliquid signing will be added in next step."
-    }
+    from hyperliquid.exchange import Exchange
+from hyperliquid.info import Info
+from hyperliquid.utils import constants
+from eth_account import Account
+
+account = Account.from_key(PRIVATE_KEY)
+
+exchange = Exchange(
+    account,
+    constants.MAINNET_API_URL
+)
+
+is_buy = payload.side == "LONG"
+
+order_result = exchange.market_open(
+    payload.symbol,
+    is_buy,
+    float(payload.positionSizeEth)
+)
+
+return {
+    "ok": True,
+    "dryRun": False,
+    "orderResult": order_result
+}
