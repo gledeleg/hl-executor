@@ -288,13 +288,15 @@ def trade(
 
         if payload.action in ["OPEN_LONG", "OPEN_SHORT"]:
 
-            if not payload.positionSizeEth:
-                raise Exception("positionSizeEth missing")
+            position_size = payload.positionSize or payload.positionSizeEth
+
+            if not position_size:
+                raise Exception("positionSize missing")
 
             if not payload.stopPrice:
                 raise Exception("stopPrice missing")
 
-            size = float(payload.positionSizeEth)
+            size = float(position_size)
 
             stop_price = float(payload.stopPrice)
 
