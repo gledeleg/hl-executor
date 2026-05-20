@@ -254,7 +254,7 @@ def trade(
             if payload.stopPrice is None:
                 raise Exception("stopPrice missing")
 
-            size = float(position_size_input)
+            size = round(float(position_size_input), 2)
             stop_price = float(payload.stopPrice)
 
             if size <= 0:
