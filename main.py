@@ -29,18 +29,20 @@ class TradePayload(BaseModel):
 
     symbol: str
     action: str
-    side: str | None = None
+    side: Optional[str] | = None
 
+    positionSize: float | None = None
+    positionSizeEth: float | None = None
+    
     accountValue: float | None = None
 
     riskPercent: float | None = None
     riskAmount: float | None = None
 
-    entryPrice: float | None = None
-    stopPrice: float | None = None
+    entryPrice: Optional[float] | = None
+    stopPrice: Optional[float] | = None
     stopDistance: float | None = None
 
-    positionSizeEth: float | None = None
     positionValueUsdc: float | None = None
 
     atr: float | None = None
