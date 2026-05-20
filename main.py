@@ -196,7 +196,7 @@ def place_stop_loss(exchange: Exchange, coin: str, position_size: float, stop_pr
         order_type={
             "trigger": {
                 "isMarket": True,
-                "triggerPx": stop_price,
+                "triggerPx": str(stop_price),
                 "tpsl": "sl"
             }
         },
