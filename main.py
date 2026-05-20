@@ -29,7 +29,7 @@ class TradePayload(BaseModel):
 
     symbol: str
     action: str
-    side: Optional[str] | = None
+    side: Optional[str] = None
 
     positionSize: float | None = None
     positionSizeEth: float | None = None
@@ -39,8 +39,8 @@ class TradePayload(BaseModel):
     riskPercent: float | None = None
     riskAmount: float | None = None
 
-    entryPrice: Optional[float] | = None
-    stopPrice: Optional[float] | = None
+    entryPrice: Optional[float] = None
+    stopPrice: Optional[float] = None
     stopDistance: float | None = None
 
     positionValueUsdc: float | None = None
