@@ -167,7 +167,7 @@ def place_stop_loss(
         order_type={
             "trigger": {
                 "isMarket": True,
-                "triggerPx": str(stop_price),
+                "triggerPx": stop_price,
                 "tpsl": "sl"
             }
         },
